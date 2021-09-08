@@ -1,0 +1,2 @@
+create table users(userid varchar(20), email varchar(20),password varchar(15), name varchar(20),gsignin varchar(5));
+create table tasks(taskid varchar(20), userid varchar(20), title varchar(30), description varchar(500), dt date, status varchar(1));

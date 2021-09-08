@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href='css/login.css'>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet">
+
+        <title>Login</title>
+        <link rel='icon' type="image/png" href='images/icon.ico'>
+
+        <script>
+            function validate() {
+
+
+
+            }
+
+        </script>
+    </head>
+
+    <body>
+        <div class="card">
+            <div><img src='images/logo.png' class="im-logo">
+                <h2>Login</h2>
+
+            </div> 
+            <form class='fm-ln' action='usersignin.php'>
+                <div>
+                    <label for='user'> Username </label>
+                    <input type='email' name='user' id='user' class='input_tag' placeholder="Enter Username Here" required>
+                </div>
+                <div>
+                    <label>
+                        Password
+                    </label>
+                    <input type='password' name='password' id='pass' placeholder="Enter Password Here" class='input_tag' required>
+
+                </div>
+                <button class='success' onclick="validate()">Submit</button>
+                <div><a href='signup.html'><p class='snup'>new user Signup</p></a></div>
+               
+            </form>
+
+        </div>
+
+
+    </body>
+
+
+
+    
+
+</html>

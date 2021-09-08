@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href='css/login.css'>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet">
+
+
+        <title>Sign Up</title>
+        <link rel='icon' type="image/png" href='images/icon.ico'>
+
+        <script>
+            function check() {
+
+                pass = document.getElementById("password").value;
+                repass = document.getElementById("repassword").value;
+                if (pass != repass)
+                {
+                    document.getElementById("notmatch").style.display = "block";
+                    document.getElementById("repassword").focus();
+
+                }
+                else {
+                    document.getElementById("notmatch").style.display = "none";
+                    user = document.getElementById("user").value;
+
+                    if (window.XMLHttpRequest)
+                    {
+                        obj = new XMLHttpRequest();
+                    }
+                    else
+                    {
+                        obj = new ActiveXObject('Microsoft.XMLHTTP');
+                    }
+                    obj.open("POST", "usersignup.php?user=" + user + "&pass=" + pass, true);
+                    obj.send();
+                    obj.onreadystatechange = function ()
+                    {
+                        if (obj.readyState == 4 && obj.status == 200)
+                        {
+
+                            window.location.href = "index.html";
+
+                        }
+                    }
+
+                }
+
+
+            }
+
+            function emailch(mail)
+            {
+                if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail))
+                {
+                    document.getElementById("notmatchemail").style.display = "none";
+
+                }
+                else {
+                    document.getElementById("notmatchemail").style.display = "block";
+                    document.getElementById("user").focus();
+
+                }
+            }
+
+        </script>
+    </head>
+
+    <body>
+        <div class="card">
+            <div><img src='images/logo.png' class="im-logo">
+                <h2>SIGN UP</h2>
+
+            </div> 
+            <form class='fm-ln'>
+                <div>
+                    <label for='user'> Username </label>
+                    <input type='email' name='user' id='user' class='input_tag' placeholder="Enter Username" onblur="emailch(this.value)" autofocus > 
+                </div>
+                <div>
+                    <label>
+                        Password
+                    </label>
+                    <input type='password' name='password' id='password' placeholder="Enter Password" class='input_tag'>
+
+                </div>
+                <div>
+                    <label>
+                        Re enter Password
+                    </label>
+                    <input type='password' name='repassword' id='repassword' onblur="check()" placeholder="Re Enter Password" class='input_tag'>
+
+                </div>
+                <input type='button' class='success'  value='submit'>
+                <p class='snup' style='display:none' id='notmatch'>password does not match!</p>
+                <p class='snup' style='display:none' id='notmatchemail'>invalid email format</p>
+                <div><p class='snup'><a href='index.html'>login</a></p></div>
+
+            </form>
+
+        </div>
+
+
+    </body>
+
+
+</html>
